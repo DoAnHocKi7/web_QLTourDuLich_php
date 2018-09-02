@@ -147,3 +147,45 @@ font-family:"Lucida Console", Monaco, monospace;
     font-family: initial;
     font-size: medium;
 }
+
+/* ------------------------------------------------------------------- */
+.radio li {
+    width: 40%;
+    font-size: 13px;
+    font-family: sans-serif;
+}
+.radio {
+    padding-top: 12px;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    background: #e4dcdc69;
+}
+.radio li input {
+    width: 11px;
+    height: 11px;
+}
+ul li{
+    display: inline-block;
+}
+.section-tab{
+    width: 280px;
+}
+
+.nav-btn-tab button {
+    background: url(../images/tabs.gif) repeat-x;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 32.9%;
+    height: 40px;
+    border-radius: 6px 6px 0 0;
+    transition: 0.3s;
+    font-size: 14px;
+    margin-right: 1px;
+}
+
+.nav-btn-tab button:hover {
+    background: url(../images/tabs_active.gif) repeat-x;
+}
