@@ -105,4 +105,21 @@ div.policy {
 
 #total-monney >div{
     padding-top: 10px;
+    font-size: 20px;
+    color: #c50441;
+}
+
+.detailed-booking i{
+    color: #e0840e;
+}
+
+/* ---------------------Modal------------------ */
+.modal-body form{
+    display: block;
+    width: 90%;
+    margin: auto;
+}
+.modal-body table tr td{
+   padding-top: 20px;
+   padding-left: 20px;
 }
