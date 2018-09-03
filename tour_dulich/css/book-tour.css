@@ -44,7 +44,7 @@
 div.policy {
     border-radius: 3px;
     border: solid 1px #0000001f;
-    width: 70%;
+    width: 66%;
     height: 110px;
     padding: 10px;
     overflow: auto;
@@ -62,4 +62,47 @@ div.policy {
 
 .form-group .book-submit{
     margin-left: 200px;
+}
+.fill-form{
+    width: 62%;
+}
+@media (max-width: 991px){
+    .fill-form{
+        width: 100%;
+    }
+}
+/* -------------------Booking-Summary-------------------- */
+.fill-form, .booking-summary{
+    float: left;
+}
+
+
+.booking-summary{
+    margin-top: 50px;
+    width: 350px;
+}
+.booking-summary .detailed-tour img{
+    width: 350px;
+    margin: auto;
+}
+
+.detailed-booking ul li{
+    display: block;
+    border-bottom: solid 1px #0000002b;
+    height: 40px;
+    padding-left: 10px;
+    padding-top: 10px;
+    display: block;
+}
+
+.detailed-booking >ul{
+    padding-left: 0;
+}
+
+#total-monney{
+    height: 50px;
+}
+
+#total-monney >div{
+    padding-top: 10px;
 }
