@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2018 at 08:53 AM
+-- Generation Time: Sep 09, 2018 at 04:15 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.0.27
 
@@ -138,7 +138,7 @@ CREATE TABLE `diadiem` (
 --
 
 INSERT INTO `diadiem` (`MaDiaDiem`, `TenDiaDiem`) VALUES
-(1, 'Hà Nôi'),
+(1, 'Hà Nội'),
 (2, 'Hạ Long'),
 (3, 'Sapa'),
 (4, 'Phan Thiết'),
@@ -149,7 +149,7 @@ INSERT INTO `diadiem` (`MaDiaDiem`, `TenDiaDiem`) VALUES
 (9, 'Phú Quốc'),
 (10, 'Miền Tây'),
 (11, 'Côn Đảo'),
-(12, 'Hồ Tràm'),
+(12, 'Bà Rịa-Vũng Tàu'),
 (13, 'Tp.HCM');
 
 -- --------------------------------------------------------
@@ -159,6 +159,7 @@ INSERT INTO `diadiem` (`MaDiaDiem`, `TenDiaDiem`) VALUES
 --
 
 CREATE TABLE `hanh_trinh` (
+  `Ma_HT` int(11) NOT NULL,
   `NoiDi` int(11) NOT NULL,
   `NoiDen` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -167,9 +168,19 @@ CREATE TABLE `hanh_trinh` (
 -- Dumping data for table `hanh_trinh`
 --
 
-INSERT INTO `hanh_trinh` (`NoiDi`, `NoiDen`) VALUES
-(1, 2),
-(1, 13);
+INSERT INTO `hanh_trinh` (`Ma_HT`, `NoiDi`, `NoiDen`) VALUES
+(1, 13, 7),
+(2, 13, 12),
+(3, 13, 6),
+(4, 1, 13),
+(5, 13, 4),
+(6, 7, 1),
+(7, 10, 9),
+(8, 1, 2),
+(9, 1, 3),
+(10, 4, 10),
+(11, 12, 11),
+(12, 7, 8);
 
 -- --------------------------------------------------------
 
@@ -184,7 +195,7 @@ CREATE TABLE `hop_dong` (
   `MaKH` int(11) NOT NULL,
   `PhuThu` double NOT NULL,
   `GhiChu` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `MaKS_Doi` int(11) NOT NULL
+  `MaKS` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -196,14 +207,26 @@ CREATE TABLE `hop_dong` (
 CREATE TABLE `khach_hang` (
   `Ma_KH` int(11) NOT NULL,
   `TenKH` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `SexKH` varchar(3) COLLATE utf8_unicode_ci NOT NULL,
+  `SexKH` varchar(6) COLLATE utf8_unicode_ci NOT NULL,
   `DOB` date NOT NULL,
   `Phone` int(11) NOT NULL,
   `Email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `DiaChi` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `NgayDangKy` date NOT NULL,
-  `LoaiKH` int(11) NOT NULL
+  `LoaiKH` int(11) NOT NULL,
+  `Cty` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `khach_hang`
+--
+
+INSERT INTO `khach_hang` (`Ma_KH`, `TenKH`, `SexKH`, `DOB`, `Phone`, `Email`, `DiaChi`, `NgayDangKy`, `LoaiKH`, `Cty`) VALUES
+(1, 'Nguyễn Thị Hồng', 'Female', '1987-09-06', 1263684117, 'hong@gmail.com', 'Tp.HCM', '2018-09-08', 4, 'Cty TNHH 1TV Sen Vàng'),
+(2, 'Trần Văn Chung', 'Male', '1997-06-06', 908187023, 'chung@gmail.com', 'Tp.HCM', '2018-09-08', 5, ''),
+(3, 'Dương Thành Phú', 'Male', '1995-12-14', 902872202, 'phu@gmail.com', 'Bến Tre', '2018-09-09', 6, ''),
+(4, 'Trần Thị Huyền', 'Female', '1985-10-24', 905873123, 'huyen@gmail.com', 'An Giang', '2018-09-10', 4, 'Cty Thực Phẩm Vạn Tiến'),
+(5, 'Nguyễn Trần Quang', 'Male', '1993-07-07', 1289543171, 'quang@gmail.com', 'Kiên Giang', '2018-09-10', 6, '');
 
 -- --------------------------------------------------------
 
@@ -213,9 +236,11 @@ CREATE TABLE `khach_hang` (
 
 CREATE TABLE `khach_san` (
   `MaKS` int(11) NOT NULL,
-  `LoaiKS` int(11) NOT NULL,
   `TenKS` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `GiaTien` double NOT NULL
+  `DiaChi` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `GiaTien` double NOT NULL,
+  `Ma_DD` int(11) NOT NULL,
+  `loaiks_MaLoaiKS` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -249,9 +274,21 @@ INSERT INTO `loaiaccount` (`MaLoaiAccount`, `TenLoaiAccount`, `NoteAcc`) VALUES
 
 CREATE TABLE `loaikh` (
   `LoaiKH` int(11) NOT NULL,
-  `TenLoaiKH` varchar(100) NOT NULL,
-  `GhiChu` varchar(100) NOT NULL
+  `TenLoaiKH` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `GhiChu` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `loaikh`
+--
+
+INSERT INTO `loaikh` (`LoaiKH`, `TenLoaiKH`, `GhiChu`) VALUES
+(1, '?o?n th?', ''),
+(2, 'C? Nh?n', ''),
+(3, 'Kh?ch v?ng lai', ''),
+(4, 'Đoàn thể', ''),
+(5, 'Cá nhân', ''),
+(6, 'Vãng lai', '');
 
 -- --------------------------------------------------------
 
@@ -261,9 +298,19 @@ CREATE TABLE `loaikh` (
 
 CREATE TABLE `loaiks` (
   `MaLoaiKS` int(11) NOT NULL,
-  `TenLoaiKS` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `MaDiaDiem` int(11) NOT NULL
+  `TenLoaiKS` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `loaiks`
+--
+
+INSERT INTO `loaiks` (`MaLoaiKS`, `TenLoaiKS`) VALUES
+(1, '1 SAO'),
+(2, '2 SAO'),
+(3, '3 SAO'),
+(4, '4 SAO'),
+(5, '5 Sao');
 
 -- --------------------------------------------------------
 
@@ -287,6 +334,17 @@ INSERT INTO `loai_tour` (`MaLoaiTour`, `TenLoaiTour`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `phanquyen`
+--
+
+CREATE TABLE `phanquyen` (
+  `account_ID` int(11) NOT NULL,
+  `idquyen` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tour`
 --
 
@@ -295,13 +353,13 @@ CREATE TABLE `tour` (
   `TenTour` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `NgayKhoiHanh` date NOT NULL,
   `NgayKetThuc` date NOT NULL,
-  `HanhTrinh` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `HinhAnh` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `MoTa` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `Gia` double NOT NULL,
+  `Gia_TreEm1` double NOT NULL,
+  `Gia_TreEm2` double NOT NULL,
   `LoaiTour` int(11) NOT NULL,
-  `hanh_trinh_NoiDi` int(11) NOT NULL,
-  `hanh_trinh_NoiDen` int(11) NOT NULL
+  `Ma_HT` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -339,8 +397,9 @@ ALTER TABLE `diadiem`
 -- Indexes for table `hanh_trinh`
 --
 ALTER TABLE `hanh_trinh`
-  ADD PRIMARY KEY (`NoiDi`,`NoiDen`),
-  ADD KEY `FK_DD_NoiDen` (`NoiDen`);
+  ADD PRIMARY KEY (`Ma_HT`),
+  ADD KEY `FK_DDiem_HTDi` (`NoiDi`),
+  ADD KEY `FK_DDiem_HTDen` (`NoiDen`);
 
 --
 -- Indexes for table `hop_dong`
@@ -348,7 +407,7 @@ ALTER TABLE `hanh_trinh`
 ALTER TABLE `hop_dong`
   ADD PRIMARY KEY (`MaHopDong`),
   ADD KEY `FK_HD_KH` (`MaKH`),
-  ADD KEY `FK_HD_KS` (`MaKS_Doi`);
+  ADD KEY `fk_hop_dong_khach_san1_idx` (`MaKS`);
 
 --
 -- Indexes for table `khach_hang`
@@ -362,7 +421,7 @@ ALTER TABLE `khach_hang`
 --
 ALTER TABLE `khach_san`
   ADD PRIMARY KEY (`MaKS`),
-  ADD KEY `FK_LKS_KS` (`LoaiKS`);
+  ADD KEY `fk_khach_san_loaiks1_idx` (`loaiks_MaLoaiKS`);
 
 --
 -- Indexes for table `loaiaccount`
@@ -380,8 +439,7 @@ ALTER TABLE `loaikh`
 -- Indexes for table `loaiks`
 --
 ALTER TABLE `loaiks`
-  ADD PRIMARY KEY (`MaLoaiKS`),
-  ADD KEY `FK_LKS_DDiem` (`MaDiaDiem`);
+  ADD PRIMARY KEY (`MaLoaiKS`);
 
 --
 -- Indexes for table `loai_tour`
@@ -390,12 +448,20 @@ ALTER TABLE `loai_tour`
   ADD PRIMARY KEY (`MaLoaiTour`);
 
 --
+-- Indexes for table `phanquyen`
+--
+ALTER TABLE `phanquyen`
+  ADD PRIMARY KEY (`account_ID`,`idquyen`),
+  ADD KEY `fk_account_has_quyen_quyen1_idx` (`idquyen`),
+  ADD KEY `fk_account_has_quyen_account1_idx` (`account_ID`);
+
+--
 -- Indexes for table `tour`
 --
 ALTER TABLE `tour`
   ADD PRIMARY KEY (`MaTour`),
   ADD KEY `FK_LTOUR_TOUR` (`LoaiTour`),
-  ADD KEY `fk_tour_hanh_trinh1_idx` (`hanh_trinh_NoiDi`,`hanh_trinh_NoiDen`);
+  ADD KEY `fk_tour_hanh_trinh1_idx` (`Ma_HT`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -420,6 +486,12 @@ ALTER TABLE `diadiem`
   MODIFY `MaDiaDiem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
+-- AUTO_INCREMENT for table `hanh_trinh`
+--
+ALTER TABLE `hanh_trinh`
+  MODIFY `Ma_HT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
 -- AUTO_INCREMENT for table `hop_dong`
 --
 ALTER TABLE `hop_dong`
@@ -429,7 +501,7 @@ ALTER TABLE `hop_dong`
 -- AUTO_INCREMENT for table `khach_hang`
 --
 ALTER TABLE `khach_hang`
-  MODIFY `Ma_KH` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Ma_KH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `khach_san`
@@ -447,13 +519,13 @@ ALTER TABLE `loaiaccount`
 -- AUTO_INCREMENT for table `loaikh`
 --
 ALTER TABLE `loaikh`
-  MODIFY `LoaiKH` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `LoaiKH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `loaiks`
 --
 ALTER TABLE `loaiks`
-  MODIFY `MaLoaiKS` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MaLoaiKS` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `loai_tour`
@@ -494,15 +566,15 @@ ALTER TABLE `diadanh`
 -- Constraints for table `hanh_trinh`
 --
 ALTER TABLE `hanh_trinh`
-  ADD CONSTRAINT `FK_DD_NoiDen` FOREIGN KEY (`NoiDen`) REFERENCES `diadiem` (`MaDiaDiem`),
-  ADD CONSTRAINT `FK_DD_NoiDi` FOREIGN KEY (`NoiDi`) REFERENCES `diadiem` (`MaDiaDiem`);
+  ADD CONSTRAINT `FK_DDiem_HTDen` FOREIGN KEY (`NoiDen`) REFERENCES `diadiem` (`MaDiaDiem`),
+  ADD CONSTRAINT `FK_DDiem_HTDi` FOREIGN KEY (`NoiDi`) REFERENCES `diadiem` (`MaDiaDiem`);
 
 --
 -- Constraints for table `hop_dong`
 --
 ALTER TABLE `hop_dong`
   ADD CONSTRAINT `FK_HD_KH` FOREIGN KEY (`MaKH`) REFERENCES `khach_hang` (`Ma_KH`),
-  ADD CONSTRAINT `FK_HD_KS` FOREIGN KEY (`MaKS_Doi`) REFERENCES `khach_san` (`MaKS`);
+  ADD CONSTRAINT `fk_hop_dong_khach_san1` FOREIGN KEY (`MaKS`) REFERENCES `khach_san` (`MaKS`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `khach_hang`
@@ -514,19 +586,21 @@ ALTER TABLE `khach_hang`
 -- Constraints for table `khach_san`
 --
 ALTER TABLE `khach_san`
-  ADD CONSTRAINT `FK_LKS_KS` FOREIGN KEY (`LoaiKS`) REFERENCES `loaiks` (`MaLoaiKS`);
+  ADD CONSTRAINT `fk_khach_san_loaiks1` FOREIGN KEY (`loaiks_MaLoaiKS`) REFERENCES `loaiks` (`MaLoaiKS`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `loaiks`
+-- Constraints for table `phanquyen`
 --
-ALTER TABLE `loaiks`
-  ADD CONSTRAINT `FK_LKS_DDiem` FOREIGN KEY (`MaDiaDiem`) REFERENCES `diadiem` (`MaDiaDiem`);
+ALTER TABLE `phanquyen`
+  ADD CONSTRAINT `fk_account_has_quyen_account1` FOREIGN KEY (`account_ID`) REFERENCES `account` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_account_has_quyen_quyen1` FOREIGN KEY (`idquyen`) REFERENCES `mydb`.`quyen` (`idquyen`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `tour`
 --
 ALTER TABLE `tour`
-  ADD CONSTRAINT `FK_LTOUR_TOUR` FOREIGN KEY (`LoaiTour`) REFERENCES `loai_tour` (`MaLoaiTour`);
+  ADD CONSTRAINT `FK_LTOUR_TOUR` FOREIGN KEY (`LoaiTour`) REFERENCES `loai_tour` (`MaLoaiTour`),
+  ADD CONSTRAINT `fk_tour_hanh_trinh1` FOREIGN KEY (`Ma_HT`) REFERENCES `hanh_trinh` (`Ma_HT`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
