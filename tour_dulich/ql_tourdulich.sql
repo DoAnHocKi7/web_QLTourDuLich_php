@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 07, 2018 at 08:53 AM
+-- Generation Time: Sep 05, 2018 at 03:06 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.0.27
 
@@ -30,29 +30,12 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `account` (
   `ID` int(11) NOT NULL,
-  `Email` varchar(100) NOT NULL,
   `Password` varchar(50) NOT NULL,
   `Phone` varchar(12) NOT NULL,
   `Sex` varchar(3) NOT NULL,
-  `Address` varchar(100) NOT NULL,
+  `Address` int(11) NOT NULL,
   `LoaiTK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `account`
---
-
-INSERT INTO `account` (`ID`, `Email`, `Password`, `Phone`, `Sex`, `Address`, `LoaiTK`) VALUES
-(1, 'admin@gmail.com', '111111', '0906580274', 'M', 'Tp.HCM', 1),
-(2, 'khatran@gmail.com', '111111', '', 'F', 'Tp.HCM', 1),
-(3, 'quang@gmail.com', '111111', '', 'F', '', 2),
-(4, 'bach@gmail.com', '111111', '', 'M', '', 2),
-(5, 'phan@gmail.com', '111111', '', 'M', '', 3),
-(6, 'ngoc@gmail.com', '111111', '', 'M', '', 3),
-(7, 'nguyen@gmail.com', '111111', '', 'F', '', 4),
-(8, 'anh@gmail.com', '111111', '', 'F', '', 4),
-(9, 'luyen@gmail.com', '111111', '', 'M', '', 5),
-(10, 'huyen@gmail.com', '111111', '', 'M', '', 5);
 
 -- --------------------------------------------------------
 
@@ -77,51 +60,6 @@ CREATE TABLE `diadanh` (
   `MaDiaDiem` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `diadanh`
---
-
-INSERT INTO `diadanh` (`MaDiaDanh`, `TenDiaDanh`, `MaDiaDiem`) VALUES
-(1, 'Lăng Chủ tịch Hồ Chí Minh', 1),
-(2, 'Phủ Tây Hồ', 1),
-(3, 'Bảo tàng lịch sử Việt Nam', 1),
-(4, 'Quần thể Vịnh Hạ Long', 2),
-(5, 'Hang Thiên Cảnh Sơn', 2),
-(6, 'Hang Thiên Cảnh Sơn', 2),
-(7, ' Đỉnh Fanxipan', 3),
-(8, 'Núi Hàm Rồng', 3),
-(9, 'Thung lũng mường Hoa ', 3),
-(10, 'Suối Hồng', 4),
-(11, 'Tháp Chàm Poshanư ', 4),
-(12, 'Đồi Cát', 4),
-(13, 'Vinpearl Land', 5),
-(14, 'Đảo Hòn Mun', 5),
-(15, 'Vịnh Vân Phong', 5),
-(16, 'Đồi chè Cầu Đất', 6),
-(17, 'Hồ Tuyền Lâm', 6),
-(18, 'Thác Datanla', 6),
-(19, 'Bà Nà Hills', 7),
-(20, 'Ngũ Hành Sơn', 7),
-(21, 'Hội An', 7),
-(22, 'Chùa Thiên Mụ', 8),
-(23, 'Chùa Huyền Không Sơn Thượng', 8),
-(24, 'Đại Nội Huế', 8),
-(25, 'Bãi Dài', 9),
-(26, 'Bãi Dài', 9),
-(27, 'Làng chài cổ Hàm Ninh', 9),
-(28, 'Cánh đồng quạt gió,Bạc Liêu', 10),
-(29, 'Chợ nổi Cái Răng, Cần Thơ', 10),
-(30, 'Nhà tù Côn Đảo', 11),
-(31, 'Rừng nguyên sinh Ông Đụng', 11),
-(32, 'Vịnh Đầm Tre', 11),
-(33, 'Bãi biển Hồ Tràm', 12),
-(34, 'Căn Cứ Minh Đạm', 12),
-(35, 'Suối nước nóng Bình Châu', 12),
-(36, 'Bưu điện trung tâm Sài Gòn', 13),
-(37, 'Địa đạo Củ Chi', 13),
-(38, ' Chiêm bái chùa Vĩnh Nghiêm', 13),
-(39, ' Chợ Bến Thành', 13);
-
 -- --------------------------------------------------------
 
 --
@@ -133,25 +71,6 @@ CREATE TABLE `diadiem` (
   `TenDiaDiem` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `diadiem`
---
-
-INSERT INTO `diadiem` (`MaDiaDiem`, `TenDiaDiem`) VALUES
-(1, 'Hà Nôi'),
-(2, 'Hạ Long'),
-(3, 'Sapa'),
-(4, 'Phan Thiết'),
-(5, 'Nha Trang'),
-(6, 'Đà Lạt'),
-(7, 'Đà Nẵng-Hội An'),
-(8, 'Huế'),
-(9, 'Phú Quốc'),
-(10, 'Miền Tây'),
-(11, 'Côn Đảo'),
-(12, 'Hồ Tràm'),
-(13, 'Tp.HCM');
-
 -- --------------------------------------------------------
 
 --
@@ -162,14 +81,6 @@ CREATE TABLE `hanh_trinh` (
   `NoiDi` int(11) NOT NULL,
   `NoiDen` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `hanh_trinh`
---
-
-INSERT INTO `hanh_trinh` (`NoiDi`, `NoiDen`) VALUES
-(1, 2),
-(1, 13);
 
 -- --------------------------------------------------------
 
@@ -226,20 +137,9 @@ CREATE TABLE `khach_san` (
 
 CREATE TABLE `loaiaccount` (
   `MaLoaiAccount` int(11) NOT NULL,
-  `TenLoaiAccount` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `TenLoaiAccount` int(11) NOT NULL,
   `NoteAcc` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `loaiaccount`
---
-
-INSERT INTO `loaiaccount` (`MaLoaiAccount`, `TenLoaiAccount`, `NoteAcc`) VALUES
-(1, 'admin', ''),
-(2, 'tổng giám đốc', ''),
-(3, 'Cửa hàng trương', ''),
-(4, 'Cửa hàng phó', ''),
-(5, 'Nhân viên ', '');
 
 -- --------------------------------------------------------
 
@@ -273,16 +173,8 @@ CREATE TABLE `loaiks` (
 
 CREATE TABLE `loai_tour` (
   `MaLoaiTour` int(11) NOT NULL,
-  `TenLoaiTour` varchar(100) NOT NULL
+  `TenLoaiTour` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `loai_tour`
---
-
-INSERT INTO `loai_tour` (`MaLoaiTour`, `TenLoaiTour`) VALUES
-(1, 'Tour trong n??c'),
-(2, 'Tour n??c ngoài');
 
 -- --------------------------------------------------------
 
@@ -296,9 +188,8 @@ CREATE TABLE `tour` (
   `NgayKhoiHanh` date NOT NULL,
   `NgayKetThuc` date NOT NULL,
   `HanhTrinh` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `HinhAnh` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `HinhAnh` int(11) NOT NULL,
   `MoTa` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `Gia` double NOT NULL,
   `LoaiTour` int(11) NOT NULL,
   `hanh_trinh_NoiDi` int(11) NOT NULL,
   `hanh_trinh_NoiDen` int(11) NOT NULL
@@ -340,7 +231,7 @@ ALTER TABLE `diadiem`
 --
 ALTER TABLE `hanh_trinh`
   ADD PRIMARY KEY (`NoiDi`,`NoiDen`),
-  ADD KEY `FK_DD_NoiDen` (`NoiDen`);
+  ADD KEY `FK_DDanh_NoiDen` (`NoiDen`);
 
 --
 -- Indexes for table `hop_dong`
@@ -405,19 +296,19 @@ ALTER TABLE `tour`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `diadanh`
 --
 ALTER TABLE `diadanh`
-  MODIFY `MaDiaDanh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `MaDiaDanh` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `diadiem`
 --
 ALTER TABLE `diadiem`
-  MODIFY `MaDiaDiem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `MaDiaDiem` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `hop_dong`
@@ -441,7 +332,7 @@ ALTER TABLE `khach_san`
 -- AUTO_INCREMENT for table `loaiaccount`
 --
 ALTER TABLE `loaiaccount`
-  MODIFY `MaLoaiAccount` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MaLoaiAccount` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `loaikh`
@@ -459,7 +350,7 @@ ALTER TABLE `loaiks`
 -- AUTO_INCREMENT for table `loai_tour`
 --
 ALTER TABLE `loai_tour`
-  MODIFY `MaLoaiTour` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `MaLoaiTour` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tour`
@@ -494,8 +385,8 @@ ALTER TABLE `diadanh`
 -- Constraints for table `hanh_trinh`
 --
 ALTER TABLE `hanh_trinh`
-  ADD CONSTRAINT `FK_DD_NoiDen` FOREIGN KEY (`NoiDen`) REFERENCES `diadiem` (`MaDiaDiem`),
-  ADD CONSTRAINT `FK_DD_NoiDi` FOREIGN KEY (`NoiDi`) REFERENCES `diadiem` (`MaDiaDiem`);
+  ADD CONSTRAINT `FK_DDanh_NoiDen` FOREIGN KEY (`NoiDen`) REFERENCES `diadanh` (`MaDiaDanh`),
+  ADD CONSTRAINT `FK_DDanh_NoiDi` FOREIGN KEY (`NoiDi`) REFERENCES `diadanh` (`MaDiaDanh`);
 
 --
 -- Constraints for table `hop_dong`
@@ -525,9 +416,7 @@ ALTER TABLE `loaiks`
 --
 -- Constraints for table `tour`
 --
-ALTER TABLE `tour`
-  ADD CONSTRAINT `FK_LTOUR_TOUR` FOREIGN KEY (`LoaiTour`) REFERENCES `loai_tour` (`MaLoaiTour`);
-COMMIT;
+;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
