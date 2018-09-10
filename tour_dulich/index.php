@@ -10,13 +10,22 @@
     <title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.min.css">
     <script src="lib/jquery-3.3.1.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
     <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
     <script src="lib/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="css/tab_control.css"> -->
+
+    <!-- ---------------------------- -->
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+    <script src="lib/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="css/tab_control.css">
 </head>
 
