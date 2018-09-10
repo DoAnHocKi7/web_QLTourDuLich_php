@@ -1,0 +1,125 @@
+.page-title{
+    background: url(../images/page-title-bg7.jpg) no-repeat;
+    background-size: 100%;
+    width: 95%;
+    padding-top: 5%;
+    height: 200px;
+    margin: auto;
+}
+
+.title{
+    padding-bottom: 15px;
+    padding-top: 15px;
+    
+}
+
+.title >span{
+    background: #ffffff45;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 25px;
+    width: 26%;
+    margin: auto;
+    display: block;
+    font-weight: bold;
+    color: white;
+}
+/* ---------------------Fill-form----------------------- */
+.form-group table tr td label{
+    width: 100%;
+    font-weight: 500;
+}
+
+.fill-form .form-group table tr td{
+    width: 50%;
+}
+
+.form-group table tr td .form-attr{
+    width: 70%;
+    border-radius: 3px;
+    border: solid #524e4e45 1px;
+    padding: 5px;
+}
+
+div.policy {
+    border-radius: 3px;
+    border: solid 1px #0000001f;
+    width: 66%;
+    height: 110px;
+    padding: 10px;
+    overflow: auto;
+}
+
+.form-group .submit-form{
+    width: 100px;
+    border: none;
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    border-radius: 3px;
+    background: #56ca02;
+}
+
+.form-group .book-submit{
+    margin-left: 200px;
+}
+.fill-form{
+    width: 62%;
+}
+@media (max-width: 991px){
+    .fill-form{
+        width: 100%;
+    }
+}
+/* -------------------Booking-Summary-------------------- */
+.fill-form, .booking-summary{
+    float: left;
+}
+
+
+.booking-summary{
+    margin-top: 50px;
+    width: 350px;
+}
+.booking-summary .detailed-tour img{
+    width: 350px;
+    margin: auto;
+}
+
+.detailed-booking ul li{
+    display: block;
+    border-bottom: solid 1px #0000002b;
+    height: 40px;
+    padding-left: 10px;
+    padding-top: 10px;
+    display: block;
+}
+
+.detailed-booking >ul{
+    padding-left: 0;
+}
+
+#total-monney{
+    height: 50px;
+}
+
+#total-monney >div{
+    padding-top: 10px;
+    font-size: 20px;
+    color: #c50441;
+}
+
+.detailed-booking i{
+    color: #e0840e;
+}
+
+/* ---------------------Modal------------------ */
+.modal-body form{
+    display: block;
+    width: 90%;
+    margin: auto;
+}
+.modal-body table tr td{
+   padding-top: 20px;
+   padding-left: 20px;
+}
