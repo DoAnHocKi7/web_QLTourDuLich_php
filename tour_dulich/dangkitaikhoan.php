@@ -1,6 +1,6 @@
 <?php
-   include ('C:\xampp\htdocs\Khodulich\web_QLTourDuLich_php\tour_dulich\xulydangki.php');
-   include ('C:\xampp\htdocs\Khodulich\web_QLTourDuLich_php\tour_dulich\conect.php');
+   include ('xulydangki.php');
+   include ('connect.php');
 ?>
 
 
@@ -27,7 +27,7 @@
 <body>
     <!-- header -->
     <?php
-         include ('C:\xampp\htdocs\Khodulich\web_QLTourDuLich_php\tour_dulich\header.php');
+         include ('header.php');
 
     ?>
 
@@ -39,7 +39,7 @@
                         <div class="form-dk">
                                 <form method="POST" action="dangkitaikhoan.php">
                                 <?php
-include ('C:\xampp\htdocs\Khodulich\web_QLTourDuLich_php\tour_dulich\errors.php');
+include ('errors.php');
 ?>
                                   
                                     <h4 class="title"><b>ĐĂNG KÝ BẰNG EMAIL</b></h4>
@@ -108,7 +108,7 @@ include ('C:\xampp\htdocs\Khodulich\web_QLTourDuLich_php\tour_dulich\errors.php'
 
     <!-- footer -->
     <?php
-             include ('C:\xampp\htdocs\Khodulich\web_QLTourDuLich_php\tour_dulich\footer.php');
+             include ('footer.php');
 
         ?>
 

@@ -1,7 +1,7 @@
 
 <?php
     session_start();
-   include ('C:\xampp\htdocs\Khodulich\web_QLTourDuLich_php\tour_dulich\conect.php');
+   include ('connect.php');
     
    $username="";
    $password="";

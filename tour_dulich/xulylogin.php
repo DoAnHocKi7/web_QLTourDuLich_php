@@ -1,12 +1,12 @@
 <?php
-            header('Location: http://localhost:8080/Khodulich/web_QLTourDuLich_php/tour_dulich/index.php');
+    header('Location: http://localhost:8080/Khodulich/web_QLTourDuLich_php/tour_dulich/index.php');
           
 ?>
 
 <?php
 
 SESSION_START();
-include ('C:\xampp\htdocs\Khodulich\web_QLTourDuLich_php\tour_dulich\conect.php');
+include ('connect.php');
 
 
 $username="";
