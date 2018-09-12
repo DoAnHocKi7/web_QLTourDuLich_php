@@ -75,6 +75,7 @@
                                 <?php
                                     if(!isset($_SESSION["username"])){
                                         echo "<a href='dangkitaikhoan.php' class='dropdown-item'>Đăng ký</a>";
+                                        echo "<br/>";
                                         echo "<a class='dropdown-item' href='#' data-toggle='modal' data-target='#myModal'>Đăng nhập</a>"; 
                                     }
                                 ?>

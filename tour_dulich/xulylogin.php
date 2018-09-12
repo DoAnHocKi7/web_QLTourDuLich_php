@@ -1,5 +1,5 @@
 <?php
-    header('Location: http://localhost:8080/Khodulich/web_QLTourDuLich_php/tour_dulich/index.php');
+    header('Location: http://localhost:8080/QuanLiTourDuLich_PHP/web_QLTourDuLich_php/tour_dulich/index.php');
           
 ?>
 

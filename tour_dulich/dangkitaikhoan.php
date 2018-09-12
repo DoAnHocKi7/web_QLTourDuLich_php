@@ -17,7 +17,7 @@
     <script src="lib/jquery-3.3.1.js"></script>
     <link rel="stylesheet" href="css/styledangky.css" type="text/css">
     <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="css/style.css">
     <style>
 
 
