@@ -10,16 +10,6 @@
     <title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.min.css">
-    <script src="lib/jquery-3.3.1.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
-    <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
-    <script src="lib/jquery.validate.min.js"></script>
-    <link rel="stylesheet" href="css/tab_control.css"> -->
-
-    <!-- ---------------------------- -->
     <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.min.css">
@@ -196,108 +186,36 @@
             </div>
         </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <a href="#">
-                <div class="col-sm-4 col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">ĐÀ NẴNG</div>
-                        <div class="panel-body">
-                            <img src="images/dn1.jpg" width="100%" height="20%">
-                        </div>
-                        <div class="panel-footer"> Thành phố đáng sống nhất Việt Nam</div>
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="col-sm-4 col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">BÀ RỊA-VŨNG TÀU</div>
-                        <div class="panel-body">
-                            <img src="images/dn.jpg" width="100%" height="20%">
-                        </div>
-                        <div class="panel-footer"> Thành phố hải sản</div>
-                    </div>
-
-                </div>
-            </a>
-            <a href="#">
-                <div class="col-sm-4 col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">ĐÀ LẠT</div>
-                        <div class="panel-body">
-                            <img src="images/dn4.jpg" width="100%" height="20%">
-                        </div>
-                        <div class="panel-footer"> Thành phố ngàn hoa</div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="col-sm-4 col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">HỒ CHÍ MINH</div>
-                        <div class="panel-body">
-                            <img src="images/dn3.jpg" width="100%" height="20%">
-                        </div>
-                        <div class="panel-footer"> Thành phố nhộn nhịp</div>
-                    </div>
-                </div>
-            </a>
+    <div class='container internal-tour'>
+        <div class='row'>
+    <?php
+        $sql="SELECT  gia,tentour,hinhanh,tendiadiem FROM tour t,hanh_trinh ht,diadiem d where loaitour=1 and t.ma_ht=ht.ma_ht and ht.noiden=d.MaDiaDiem
+                group by tendiadiem  limit 8;";
+        $tour_trongnuoc=mysqli_query($conn,$sql);
+        if(mysqli_num_rows($tour_trongnuoc)>0){
+            while ($tour=mysqli_fetch_assoc($tour_trongnuoc)){
+               echo "
+                   <a href='#'>
+                       <div class='col-sm-4 col-md-3'>
+                           <div class='panel panel-primary'>
+                               <div class='panel-heading'>".$tour['tendiadiem']."</div>
+                               <div class='panel-body'>
+                                   <img src='".$tour['hinhanh']."' width='100%' height='20%'>
+                               </div>
+                               <div class='panel-footer'>".$tour['tentour']."</div>
+                           </div>
+                       </div>
+                   </a>
+                    ";
+            }
+        }
+        else{
+            echo "<h3 style='color: red'>Hiện tại chưa có tour trong nước</h3>";
+        }
+    ?>
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <a href="#">
-                <div class="col-sm-4 col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">NHA TRANG</div>
-                        <div class="panel-body">
-                            <img src="images/dn4.jpg" width="100%" height="20%">
-                        </div>
-                        <div class="panel-footer">Thành phố du lịch</div>
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="col-sm-4 col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">Phan Thiết</div>
-                        <div class="panel-body">
-                            <img src="images/dn5.jpg" width="100%" height="20%">
-                        </div>
-                        <div class="panel-footer"> Thành phố Phan thiết</div>
-                    </div>
-
-                </div>
-            </a>
-            <a href="#">
-                <div class="col-sm-4 col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">HÀ NỘI</div>
-                        <div class="panel-body">
-                            <img src="images/dn4.jpg" width="100%" height="20%">
-                        </div>
-                        <div class="panel-footer">Thủ Đô Việt Nam</div>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#">
-                <div class="col-sm-4 col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">PHÚ QUỐC</div>
-                        <div class="panel-body">
-                            <img src="images/dn3.jpg" width="100%" height="20%">
-                        </div>
-                        <div class="panel-footer">Thành phố tham quan</div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
 
     <div class="container">
         <div class="row">
@@ -309,55 +227,36 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container external-tour">
         <div class="row">
-            <a href="#">
-                <div class="col-sm-4 col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">BANGKOK</div>
-                        <div class="panel-body">
-                            <img src="images/nn.jpg" width="100%" height="20%">
+        <?php
+            $sql_ngoainuoc="SELECT  gia,tentour,hinhanh,tendiadiem FROM tour t,hanh_trinh ht,diadiem d where loaitour=2 and t.ma_ht=ht.ma_ht and ht.noiden=d.MaDiaDiem
+                    group by tendiadiem  limit 8;";
+            $tour_ngoainuoc=mysqli_query($conn,$sql_ngoainuoc);
+            if(mysqli_num_rows($tour_ngoainuoc)>0){
+                while ($tour=mysqli_fetch_assoc($tour_ngoainuoc)){
+                    $x=1;
+                echo "
+                    <a href='#'>
+                        <div class='col-sm-4 col-md-3'>
+                            <div class='panel panel-primary'>
+                                <div class='panel-heading'>".$tour['tendiadiem']."</div>
+                                <div class='panel-body'>
+                                    <img src='".$tour['hinhanh']."' width='100%' height='20%'>
+                                </div>
+                                <div class='panel-footer'>".$tour['tentour']."</div>
+                            </div>
                         </div>
-                        <div class="panel-footer">Thành phố phật giáo</div>
-                    </div>
-                </div>
-            </a>
-            <a href="#">
-                <div class="col-sm-4 col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">SINGAPOR</div>
-                        <div class="panel-body">
-                            <img src="images/nn2.jpg" width="100%" height="20%">
-                        </div>
-                        <div class="panel-footer">Con rồng Đông Nam Á</div>
-                    </div>
-
-                </div>
-            </a>
-            <a href="#">
-                <div class="col-sm-4 col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">SEOUL</div>
-                        <div class="panel-body">
-                            <img src="images/dn7.jpg" width="100%" height="20%">
-                        </div>
-                        <div class="panel-footer">Thành phố lãng mạng</div>
-                    </div>
-                </div>
-            </a>
-
-
-            <a href="#">
-                <div class="col-sm-4 col-md-3">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">HỒNG KONG</div>
-                        <div class="panel-body">
-                            <img src="images/dn8.jpg" width="100%" height="20%">
-                        </div>
-                        <div class="panel-footer">Thành phố nghệ thuật</div>
-                    </div>
-                </div>
-            </a>
+                    </a>
+                        ";
+                }
+                // Free result set
+                mysqli_free_result($tour_ngoainuoc);
+            }
+            else{
+                echo "<h3 style='color: red'>Hiện tại chưa có tour nước ngoài</h3>";
+            }
+        ?>
         </div>
     </div>
 
