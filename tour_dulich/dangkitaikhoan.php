@@ -15,6 +15,7 @@
     <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.min.css">
     <script src="lib/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/styledangky.css" type="text/css">
     <script src="lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
 

@@ -19,11 +19,30 @@
        $sex=$_POST['sex'];
        $diachi=$_POST['Address'];
 
+       function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+      }
+
        if(empty($username))
        {
            array_push($errors,"Bạn nhập thiếu gmail");
            
        }
+       else
+       {
+            $email = test_input($_POST["email"]);
+                
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                array_push($errors,"Email không hợp lệ");
+            }
+
+       }
+     
+       
+       
        if(empty($password))
        {
            array_push($errors,"Bạn nhập thiếu password");
@@ -34,12 +53,27 @@
            array_push($errors,"Bạn nhập thiếu số phone");
            
        }
+       else
+       {
+           if(strlen($phone)<10)
+           {
+            array_push($errors,"Số điện thoại phải 10 số trở lên");
+           }
+       }
        
        if(empty($diachi))
        {
            array_push($errors,"Bạn nhập thiếu địa chỉ");
            
        }
+
+      
+     
+   
+      
+
+
+
        $kiemtra_email="SELECT * FROM account WHERE Email='$username'";
        $result=mysqli_query($conn,$kiemtra_email);
 
@@ -61,13 +95,16 @@
        }
 
       
-   }
+   
 
    if(isset($_GET['logout'])){
        session_destroy();
        unset($_SESSION['username']);
        header('location:index.php');
    }
+
+
+}
 
 
 
