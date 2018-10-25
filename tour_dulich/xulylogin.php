@@ -20,7 +20,7 @@ if(isset($_POST['register']))
     $password=$_POST['password_dn'];
 
     
-    $sql="select * from account where email='$username' and password='$password'";
+    $sql="select * from khach_hang where email='$username' and matkhau='$password'";
     $result=mysqli_query($conn,$sql);
         if(mysqli_num_rows($result)==1)
         {

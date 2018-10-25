@@ -85,8 +85,8 @@
        if(count($errors)==0)
        {
            $password_dl=md5($password);
-           $sql="INSERT INTO account (ID,Email, Password,Phone,Sex,Address) VALUES 
-           ('','$username','$password','$phone','$sex','$diachi')";
+           $sql="INSERT INTO `ql_tourdulich`.`khach_hang` (`Ma_KH`, `TenKH`, `SexKH`, `Phone`, `Email`, `DiaChi`, `LoaiKH`, `MatKhau`) 
+		   VALUES ('555555', 'qqq', '$sex', '$phone', '$username', '$diachi', '4', '$password');";
            mysqli_query($conn,$sql);
 
            $_SESSION['username']=$username;
